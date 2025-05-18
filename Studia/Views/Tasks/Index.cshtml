@@ -21,7 +21,7 @@
                     <th>@Html.DisplayNameFor(model => model.Name)</th>
                     <th>@Html.DisplayNameFor(model => model.Description)</th>
                     <th>@Html.DisplayNameFor(model => model.Status)</th>
-                    <th>@Html.DisplayNameFor(model => model.DueDateTime)</th>
+                    <th>Due date and time</th>
                     <th>@Html.DisplayNameFor(model => model.CreatedBy)</th>
                     <th class="text-center">Actions</th>
                 </tr>
@@ -37,7 +37,7 @@
                                 @item.Status
                             </span>
                         </td>
-                        <td>@item.DueDateTime.ToString("yyyy-MM-dd HH:mm")</td>
+                        <td>@item.DueDateTime.ToString("yyyy-MM-dd | HH:mm::tt")</td>
                         <td>@item.CreatedBy</td>
                         <td class="text-center">
                             <div class="btn-group btn-group-sm">
