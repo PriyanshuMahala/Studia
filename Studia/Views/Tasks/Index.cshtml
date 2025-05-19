@@ -1,5 +1,18 @@
 ﻿@model IEnumerable<Studia.Models.Task>
 
+@functions
+{
+    public string GetStatus(Studia.Models.Task task)
+    {
+        return task.Status switch
+        {
+            "Completed" => "success",
+            "Due late" => "danger",
+            _ => "warning",
+        };
+    }
+}
+
 @{
     ViewData["Title"] = "Tasks";
 }
@@ -7,7 +20,7 @@
 <div class="container my-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="text-primary mb-0">📋 Task List</h2>
-        <a class="btn btn-outline-info" asp-controller="Tasks" asp-action="UpdateDb">🔄 Refresh</a>
+        <a class="btn btn-outline-info" asp-controller="Tasks" asp-action="UpdateDbAndReturnToIndex">🔄 Refresh</a>
     </div>
 
     <div class="mb-3">
@@ -22,7 +35,7 @@
                     <th>@Html.DisplayNameFor(model => model.Description)</th>
                     <th>@Html.DisplayNameFor(model => model.Status)</th>
                     <th>Due date and time</th>
-                    <th>@Html.DisplayNameFor(model => model.CreatedBy)</th>
+                    <th>Created by</th>
                     <th class="text-center">Actions</th>
                 </tr>
             </thead>
@@ -33,11 +46,11 @@
                         <td>@Html.DisplayFor(modelItem => item.Name)</td>
                         <td>@Html.DisplayFor(modelItem => item.Description)</td>
                         <td>
-                            <span class="badge bg-@(item.Status == "Completed" ? "success" : "warning")">
+                            <span class="badge bg-@(GetStatus(item))">
                                 @item.Status
                             </span>
                         </td>
-                        <td>@item.DueDateTime.ToString("yyyy-MM-dd | HH:mm::tt")</td>
+                        <td>@item.DueDateTime.ToString("hh:mm tt | yyyy-MM-dd")</td>
                         <td>@item.CreatedBy</td>
                         <td class="text-center">
                             <div class="btn-group btn-group-sm">

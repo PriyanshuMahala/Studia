@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Build.ObjectModelRemoting;
 using Microsoft.EntityFrameworkCore;
 using Studia.Data;
 using Task = Studia.Models.Task;
@@ -17,6 +18,7 @@ namespace Studia.Controllers
         // GET: Tasks
         public async Task<IActionResult> Index()
         {
+            UpdateDb();
             return View(await _context.Task.ToListAsync());
         }
 
@@ -63,6 +65,7 @@ namespace Studia.Controllers
         // GET: Tasks/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -114,6 +117,7 @@ namespace Studia.Controllers
         // GET: Tasks/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -134,6 +138,7 @@ namespace Studia.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+
             var task = await _context.Task.FindAsync(id);
             if (task != null)
             {
@@ -149,8 +154,9 @@ namespace Studia.Controllers
             return _context.Task.Any(e => e.Id == id);
         }
 
-        public IActionResult UpdateDb()
+        public void UpdateDb()
         {
+
             foreach (var task in _context.Task)
             {
                 if (DateTime.Now > task.DueDateTime && task.Status != "Completed")
@@ -163,7 +169,14 @@ namespace Studia.Controllers
                 }
             }
             _context.SaveChanges();
+        }
+
+        public IActionResult UpdateDbAndReturnToIndex()
+        {
+            UpdateDb();
             return RedirectToAction(nameof(Index));
         }
+
+        
     }
 }

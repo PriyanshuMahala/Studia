@@ -15,7 +15,7 @@
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <input required="true" asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -25,7 +25,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
-                <select asp-for="Status" class="form-select">
+                <select  required="true" asp-for="Status" class="form-select">
                     <option value="Completed">Complete</option>
                     <option value="Pending">Pending</option>
                     <option value="Due Late">Late</option>
@@ -33,16 +33,17 @@
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DueDateTime" class="control-label"></label>
-                <input asp-for="DueDateTime" class="form-control" />
+                <label asp-for="DueDateTime" class="control-label">Due date and time</label>
+                <input asp-for="DueDateTime" class="form-control" required="true" />
                 <span asp-validation-for="DueDateTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreatedBy" class="control-label"></label>
-                <input asp-for="CreatedBy" class="form-control" />
+                <label asp-for="CreatedBy" class="control-label">Created by</label>
+                <input required="true" asp-for="CreatedBy" class="form-control" />
                 <span asp-validation-for="CreatedBy" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <br/>
+            <div class="form-group">S
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
