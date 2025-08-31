@@ -64,17 +64,7 @@ body {
         transform: translateY(4px);
     }
 
-.due-late {
-    display: inline-block;
-    padding: 5px 10px;
-    font-size: 15px;
-    font-weight: bold;
-    position: center;
-    background-color: red;
-    color: white;
-    border: 1px solid;
-    border-radius: 15px;
-}
+
 
 .refresh-button {
     display: inline-block;
@@ -108,15 +98,18 @@ body {
 /* From Uiverse.io by ke1221 */
 .Cool-button {
     color: #258cfb;
-    padding: 0.5em 0.9em;
+    padding: 0.4em 0.9em;
     text-decoration: none;
     font-size: 16px;
-    border-radius: 0.5em;
+    border-radius: 0.9em;
     background: #2b2a2a;
     cursor: pointer;
     transition: all 0.3s;
 }
-
+    .Cool-button:hover {
+        color: azure;
+        background-color: #160239;
+    }
     .Cool-button:active {
         color: #666;
     }
