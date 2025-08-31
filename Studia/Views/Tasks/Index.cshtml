@@ -17,29 +17,21 @@
     ViewData["Title"] = "Tasks";
 }
 
-<div class="container my-5">
+<div >
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="text-primary mb-0">Task List</h2>
-        <a class="refresh-button" asp-controller="Tasks" asp-action="UpdateDbAndReturnToIndex">Refresh</a>
+        <h1 class="text-primary" style="color: white;">Task List</h1>
     </div>
 
-    <div class="mb-3">
-        <a asp-action="Create" class="btn btn-success">Create New Task</a>
+    <div class="mb-3" >
+        <a asp-action="Create" class="comic-button-green">Create New Task</a>
+        <a class="refresh-button" style="float:right" asp-controller="Tasks" asp-action="UpdateDbAndReturnToIndex">Refresh</a>
     </div>
-
+    
+        
+    
     <div class="table-responsive">
         <table class="table table-hover table-bordered align-middle table-dark">
-            <thead class="table-dark">
-                <tr>
-                    <th>Mark as done</th>
-                    <th>@Html.DisplayNameFor(model => model.Name)</th>
-                    <th>@Html.DisplayNameFor(model => model.Description)</th>
-                    <th>@Html.DisplayNameFor(model => model.Status)</th>
-                    <th>Due date and time</th>
-                    <th>Created by</th>
-                    <th class="text-center">Actions</th>
-                </tr>
-            </thead>
+            
             <tbody>
                 @foreach (var item in Model)
                 {
@@ -57,7 +49,7 @@
                                 @item.Status
                             </span>
                         </td>
-                        <td>@item.DueDateTime.ToString("hh:mm tt | yyyy-MM-dd")</td>
+                        <td>@item.DueDateTime.ToString("hh:mmtt | d MMM yy")</td>
                         <td>@item.CreatedBy</td>
                         <td class="text-center">
                             <div class="btn-group btn-group-sm">
