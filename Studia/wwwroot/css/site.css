@@ -29,3 +29,74 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
+.comic-button {
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    background-color: #00FFFF;
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow: 2.8px 2.8px 0px #000;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+    .comic-button:hover {
+        background-color: white;
+        color: #000000;
+        border: 1px solid ;
+        box-shadow: 5px 5px 0px #258cfb;
+    }
+
+    .comic-button:active {
+        background-color: #00ffa7;
+        box-shadow: none;
+        transform: translateY(4px);
+    }
+
+.due-late{
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    position: center;
+    background-color: red;
+    color: white;
+    border: 1px solid;
+    border-radius: 15px;
+}
+
+.refresh-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #272727;
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px #000;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+    .refresh-button:hover {
+        background-color: #fff;
+        color: #535353;
+        border: 2px solid #535353;
+        box-shadow: 5px 5px 0px #535353;
+    }
+
+    .refresh-button:active {
+        background-color: #fcf414;
+        box-shadow: none;
+        transform: translateY(4px);
+    }
+
