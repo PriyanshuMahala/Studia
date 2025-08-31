@@ -5,6 +5,8 @@
 <h1>Create</h1>
 <h4>Task</h4>
 <hr />
+
+<!--TODO: Implementaion for checkbox feature-->
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create" method="post">
@@ -18,16 +20,6 @@
                 <label asp-for="Description" class="control-label"></label>
                 <input required="true" asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <select required="true" asp-for="Status" class="form-select">
-                    <option value="">-- Select Status --</option>
-                    <option value="Pending">Pending</option>
-                    <option value="Completed">Complete</option>
-                    <option value="Due Late">Late</option>
-                </select>
-                <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DueDateTime" class="control-label">Due date and time</label>

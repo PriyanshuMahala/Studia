@@ -11,6 +11,12 @@
             _ => "warning",
         };
     }
+    public bool Get_Check(Studia.Models.Task task)
+    {
+        if (task.Status == "Pending") return true;
+        return false;
+
+    }
 }
 
 @{
@@ -38,7 +44,7 @@
                     <tr>
                         <td class="text-center">
                             <label class="checkmark">
-                                <input checked="checked" type="checkbox"/>
+                                <input id="checkbox1" bg-@(Get_Check(item) ? "checked" : "") type="checkbox"/>
                             </label>
                         </td>
                         <td>@Html.DisplayFor(modelItem => item.Name)</td>
